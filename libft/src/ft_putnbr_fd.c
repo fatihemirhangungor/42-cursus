@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/16 16:17:08 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/21 12:16:58 by fgungor          ###   ########.fr       */
+/*   Created: 2022/02/21 17:24:38 by fgungor           #+#    #+#             */
+/*   Updated: 2022/02/21 17:49:26 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*str;
-
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!str)
-		return (NULL);
-	while (str[i] != '\0')
+	if (n < 0)
 	{
-		str[i] = f(i, s[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		n = -n;
 	}
-	return (str);
+	if (n == -2147483648)
+	{
+		ft_putchar_fd('2', fd);
+		n = n % 1000000000;
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
-//yeni oluşturduğumuz str içine fonksiyondan gelen output'u basıyoruz
