@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:30:27 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/16 15:14:48 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/23 16:19:41 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	if (!s)
 		return (NULL);

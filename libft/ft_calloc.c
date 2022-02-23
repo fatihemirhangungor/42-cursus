@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
+/*   By: fgungor <fgungor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 17:17:51 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/21 17:21:37 by fgungor          ###   ########.tr       */
+/*   Created: 2022/02/21 11:50:17 by fgungor           #+#    #+#             */
+/*   Updated: 2022/02/23 17:46:08 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//allocates the requested memory and returns a pointer to it
+//calloc sets allocated memory to zero
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t	i;
+	void	*ptr;
 
-	while (s[i] != '\0')
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	ptr = malloc(nitems * size);
+	if (ptr == 0)
+		return (ptr);
+	ft_bzero(ptr, nitems * size);
+	return (ptr);
 }
-//string yazma fonksiyonu

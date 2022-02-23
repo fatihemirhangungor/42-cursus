@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 16:01:15 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/21 15:17:40 by fgungor          ###   ########.fr       */
+/*   Updated: 2022/02/23 16:35:00 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char	*ft_itoa(int n)
 	}
 	while (n != 0)
 	{
-		*(str + --digit) = (n % 10) + '0';
+		*(ptr + --digit_len) = (n % 10) + '0';
 		n /= 10;
 	}
-	return (str);
+	return (ptr);
 }

@@ -6,9 +6,11 @@
 /*   By: fgungor <fgungor@student.42kocaeli.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:54:25 by fgungor           #+#    #+#             */
-/*   Updated: 2022/01/31 15:58:26 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/23 17:18:35 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -18,6 +20,7 @@ size_t	ft_strlen(const char *s)
 	while (*s)
 	{
 		len++;
+		s++;
 	}
 	return (len);
 }

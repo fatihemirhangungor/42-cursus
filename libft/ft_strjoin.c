@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:47:52 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/16 15:15:10 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/23 16:22:50 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (0);
 	ft_memmove(str, s1, len_s1);
-	ft_memmove(str + len_s1, s2, s2_len);
-	rtn[len - 1] = '\0';
+	ft_memmove(str + len_s1, s2, len_s2);
+	str[len - 1] = '\0';
 	return (str);
 }

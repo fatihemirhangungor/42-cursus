@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:20:18 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/16 12:20:21 by fgungor          ###   ########.fr       */
+/*   Updated: 2022/02/23 16:14:50 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_atoi(const char *str)
 	int	isaret;
 	int	toplam;
 
-	index = 0;
+	i = 0;
 	isaret = 1;
 	toplam = 0;
 	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'

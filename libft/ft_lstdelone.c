@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgungor <fgungor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 11:50:17 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/21 12:17:51 by fgungor          ###   ########.fr       */
+/*   Created: 2022/02/23 14:31:58 by fgungor           #+#    #+#             */
+/*   Updated: 2022/02/23 14:58:19 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//allocates the requested memory and returns a pointer to it
-//calloc sets allocated memory to zero
 #include "libft.h"
 
-void	*calloc(size_t nitems, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	void	*ptr;
-
-	ptr = malloc(nitems * size);
-	if (ptr == 0)
-		return (ptr);
-	ft_bzero(ptr, nitems * size);
-	return (ptr);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

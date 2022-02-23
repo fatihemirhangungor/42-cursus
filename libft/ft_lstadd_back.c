@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 17:24:38 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/21 17:49:26 by fgungor          ###   ########.tr       */
+/*   Created: 2022/02/23 13:20:08 by fgungor           #+#    #+#             */
+/*   Updated: 2022/02/23 14:18:58 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (n < 0)
+	t_list	*rtn;
+
+	if (!new)
+		return ;
+	if (!*lst)
 	{
-		ft_putchar_fd('-', fd);
-		n = -n;
+		*lst = new;
+		return ;
 	}
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('2', fd);
-		n = n % 1000000000;
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	rtn = ft_lstlast(*lst);
+	rtn->next = new;
 }
