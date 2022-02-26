@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:06:56 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/23 16:36:40 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/26 16:43:27 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (lst->next)
+	while (lst)
 	{
-		lst = lst->next;
+		lst = lst -> next;
 		i++;
 	}
 	return (i);

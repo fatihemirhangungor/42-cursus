@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:47:52 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/23 16:22:50 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/26 14:33:24 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	size_t	len;
-	size_t	len_s1;
-	size_t	len_s2;
 
-	if (!s1 && !s2)
-		return (ft_strdup(""));
-	if (s1 && !s2)
-		return (ft_strdup(s1));
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	len = len_s1 + len_s2;
-	str = malloc(sizeof(char) * (len + 1));
+	if (!s1 || !s2)
+		return (0);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);
-	ft_memmove(str, s1, len_s1);
-	ft_memmove(str + len_s1, s2, len_s2);
-	str[len - 1] = '\0';
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcat(str, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (str);
 }

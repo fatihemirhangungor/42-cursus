@@ -6,57 +6,55 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 15:42:39 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/23 16:30:48 by fgungor          ###   ########.tr       */
+/*   Updated: 2022/02/26 17:29:18 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int    kelime_sayisi(const char *str, char c)
+int	kelime_sayisi(const char *s, char c)
 {
-    int i;
-    int trigger;
+	size_t	ret;
 
-    i = 0;
-    trigger = 0;
-    while (*str)
-    {
-        if (*str != c && trigger == 0)
-        {
-            trigger = 1;
-            i++;
-        }
-        else if (*str == c)
-            trigger = 0;
-        str++;
-    }
-    return (i);
+	ret = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			++ret;
+			while (*s && *s != c)
+				++s;
+		}
+		else
+			++s;
+	}
+	return (ret);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**kelimeler;
+	char	**ret;
 	size_t	i;
-	size_t	kelime_harf_index;
+	size_t	len;
 
 	if (!s)
-		return (NULL);
-	kelimeler = (char **)malloc(sizeof(char *) * (kelime_sayisi(s, c) + 1));
-	if (!kelimeler)
-		return (NULL);
+		return (0);
 	i = 0;
+	ret = malloc(sizeof(char *) * (kelime_sayisi(s, c) + 1));
+	if (!ret)
+		return (0);
 	while (*s)
 	{
-		if (*s == c)
-			s++;
-		else
+		if (*s != c)
 		{
-			kelime_harf_index = 0;
-			while (*s != c && *s && ++kelime_harf_index)
-				s++;
-			kelimeler[i++] = malloc(sizeof(char) * (kelime_harf_index + 1));
-			ft_strlcpy(kelimeler[i], s - kelime_harf_index, kelime_harf_index + 1);
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i++] = ft_substr(s - len, 0, len);
 		}
+		else
+			++s;
 	}
-	return (kelimeler);
+	ret[i] = 0;
+	return (ret);
 }
