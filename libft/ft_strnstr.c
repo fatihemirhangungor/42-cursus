@@ -6,7 +6,7 @@
 /*   By: fgungor <fgungor@student.42kocaeli.com.tr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 12:19:54 by fgungor           #+#    #+#             */
-/*   Updated: 2022/02/16 12:19:58 by fgungor          ###   ########.fr       */
+/*   Updated: 2022/02/27 16:57:34 by fgungor          ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	h = 0;
 	if (needle[0] == '\0')
-	{
 		return ((char *)haystack);
-	}
 	while (haystack[h] != '\0')
 	{
 		n = 0;
